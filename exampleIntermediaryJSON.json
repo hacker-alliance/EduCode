@@ -1,15 +1,15 @@
 {
     {
         "shape": "rectangle",
-        "value": "dog=51"
+        "value": "dog51"
     },
     {
         "shape": "triangle",
-        "value": "dog=51"
+        "value": "dog51"
     },
     {
         "shape": "rectangle",
-        "value": "dog=65"
+        "value": "dog65"
     },
     {
         "shape": "ellipse",
