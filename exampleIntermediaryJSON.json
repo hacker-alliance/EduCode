@@ -1,0 +1,18 @@
+{
+    {
+        "shape": "rectangle",
+        "value": "dog=51"
+    },
+    {
+        "shape": "triangle",
+        "value": "dog=51"
+    },
+    {
+        "shape": "rectangle",
+        "value": "dog=65"
+    },
+    {
+        "shape": "ellipse",
+        "value": "dog passed"
+    }
+}
