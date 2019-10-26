@@ -1,18 +1,20 @@
 {
-    {
-        "shape": "rectangle",
-        "value": "dog51"
-    },
-    {
-        "shape": "triangle",
-        "value": "dog51"
-    },
-    {
-        "shape": "rectangle",
-        "value": "dog65"
-    },
-    {
-        "shape": "ellipse",
-        "value": "dog passed"
-    }
+    "shapes" : [ 
+        {
+            "shape": "rectangle",
+            "value": "dog51"
+        },
+        {
+            "shape": "triangle",
+            "value": "dog51"
+        },
+        {
+            "shape": "rectangle",
+            "value": "dog65"
+        },
+        {
+            "shape": "ellipse",
+            "value": "dog passed"
+        }
+    ]
 }
