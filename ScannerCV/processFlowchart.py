@@ -89,3 +89,82 @@ heightCut = int(maxHeight*outterCropProportion/2)
 perspectiveImage = perspective[heightCut:h-1-heightCut, widthCut:w-1-widthCut]
 
 cv2.imwrite('perspective.png', perspectiveImage)
+
+def detect(c):
+    # initialize the shape name and approximate the contour
+    shape = "unidentified"
+    peri = cv2.arcLength(c, True)
+    approx = cv2.approxPolyDP(c, 0.02 * peri, True)
+    # if the shape is a triangle, it will have 3 vertices
+    if len(approx) == 3:
+        shape = "triangle"
+
+    # if the shape has 4 vertices, it is either a square or
+    # a rectangle
+    elif len(approx) == 4:
+        # compute the bounding box of the contour and use the
+        # bounding box to compute the aspect ratio
+        (x, y, w, h) = cv2.boundingRect(approx)
+        ar = w / float(h)
+
+        # a square will have an aspect ratio that is approximately
+        # equal to one, otherwise, the shape is a rectangle
+        shape = "square" if ar >= 0.95 and ar <= 1.05 else "rectangle"
+
+    # if the shape is a pentagon, it will have 5 vertices
+    elif len(approx) == 5:
+        shape = "pentagon"
+
+    # otherwise, we assume the shape is a circle
+    else:
+        shape = "circle"
+
+    # return the name of the shape
+    return shape
+
+imagePGray = cv2.cvtColor(perspectiveImage.copy(), cv2.COLOR_BGR2GRAY)
+
+# Filtering
+imagePGray = cv2.GaussianBlur(imagePGray.copy(), (5, 5), 0)
+imagePGray = cv2.GaussianBlur(imagePGray.copy(), (5, 5), 0)
+edgesP = cv2.Canny(imagePGray.copy(), 80, 160)
+threshP = cv2.threshold(edgesP.copy(), 80, 160, cv2.THRESH_BINARY)[1]
+
+kernelP = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(9,9))
+dilatedP = cv2.dilate(threshP.copy(), kernelP)
+cv2.imwrite('cannyPerspective.png', dilatedP)
+
+# Obtain contours, looking for scantron outline
+contoursP, hierarchyP = cv2.findContours(dilatedP.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+ChildContour = hierarchyP[0, :, -1]
+WithoutChildContour = (ChildContour==-1).nonzero()[0]
+
+cntsA = contoursP
+# get contours from indices
+cntsA=[cntsA[i] for i in WithoutChildContour]
+
+ratio = perspectiveImage.shape[0] / float(perspectiveImage.shape[0])
+shapeContoursImage = perspectiveImage.copy()
+
+# loop over the contours
+for c in cntsA:
+    # compute the center of the contour, then detect the name of the
+    # shape using only the contour
+    M = cv2.moments(c)
+
+    cX = int((M["m10"] / (M["m00"]+1)) * ratio)
+    cY = int((M["m01"] / (M["m00"]+1)) * ratio)
+    shape = detect(c)
+
+    # multiply the contour (x, y)-coordinates by the resize ratio,
+    # then draw the contours and the name of the shape on the image
+    c = c.astype("float")
+    c *= ratio
+    c = c.astype("int")
+    cv2.drawContours(shapeContoursImage, [c], -1, (57, 255, 20), 2)
+    cv2.putText(shapeContoursImage, shape, (cX, cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+
+#shapeContoursImage = cv2.drawContours(perspectiveImage.copy(), cntsA, -1, (57, 255, 20), 2)
+
+cv2.imwrite('shapecontours.png', shapeContoursImage)
