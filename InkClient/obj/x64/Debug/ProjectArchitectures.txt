@@ -1,0 +1,1 @@
+C:\Users\terre\Documents\Code\cognitive-services-REST-api-samples\dotnet\InkRecognition\uwp-app\cs\NoteTaker.csproj;x64
