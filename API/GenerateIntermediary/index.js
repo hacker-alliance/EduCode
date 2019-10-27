@@ -20,7 +20,8 @@ Array.prototype.contains = function(element){
 let shapeFilter = function(element) {
     let allowedCategories = ["inkDrawing", "inkWord"];
     if (element.category == "inkDrawing") {
-        let allowedShapes  = ["ellipse",  "square", "rectangle", "triangle", "pengtagon"];
+        let allowedShapes  = ["ellipse", "circle", "square", "rectangle", "triangle", "pentagon"];
+        return true;
         if (allowedShapes.contains(element.recognizedObject)) {
             return true;
         }
@@ -43,14 +44,26 @@ module.exports = async function (context, req) {
     //if (req.query.name || (req.body && req.body.name)) {
     if (true) {
         // Get Recognition Unit Array
-        let shapes = req.body.recognitionUnits;
+        let recog = req.body.recognitionUnits;
 
         //Filter Out Invalid Shapes
-        shapes.filter(shapeFilter);
+        recog = recog.filter(shapeFilter);
 
         // Sort Recognition Units
-        shapes.sort(shapeCompare);
+        recog.sort(shapeCompare);
 
+        // Combine Shapes with Words
+        let shapes = [];
+
+        
+        for (i = 0; i < recog.length; i += 2) {
+            let shape = {
+                shape: recog[i].recognizedObject,
+                value: recog[i+1].recognizedText
+            }
+            shapes.push(shape);
+        }
+        
 
         let response = {
             shapes
