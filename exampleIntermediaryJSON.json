@@ -14,5 +14,29 @@
     {
         "shape": "ellipse",
         "value": "dog passed"
+    },
+    {
+        "shape": "triangle",
+        "value": "dog53"
+    },
+    {
+        "shape": "rectangle",
+        "value": "cat57"
+    },
+    {
+        "shape": "triangle",
+        "value": "end"        
+    },
+    {
+        "shape": "rectangle",
+        "value": "cat99"
+    },
+    {
+        "shape": "triangle",
+        "value": "end"        
+    },
+    {
+        "shape": "rectangle",
+        "value": "cat99"
     }
 ]
