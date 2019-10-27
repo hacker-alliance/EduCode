@@ -5,11 +5,11 @@
     },
     {
         "shape": "triangle",
-        "value": "dog51"
+        "value": "dogLTE51"
     },
     {
         "shape": "rectangle",
-        "value": "dog65"
+        "value": "dog*6"
     },
     {
         "shape": "ellipse",
@@ -32,8 +32,16 @@
         "value": "cat99"
     },
     {
-        "shape": "triangle",
-        "value": "end"        
+        "shape": "pentagon",
+        "value": "dogDNE57"
+    },
+    {
+        "shape": "rectangle",
+        "value": "dog+2"
+    },
+    {
+        "shape": "pentagon",
+        "value": "end"
     },
     {
         "shape": "rectangle",
