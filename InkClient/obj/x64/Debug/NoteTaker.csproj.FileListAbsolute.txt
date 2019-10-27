@@ -58,7 +58,6 @@ C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\Newtonsoft.Json.dl
 C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\Newtonsoft.Json.pdb
 C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\System.Runtime.dll
 C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\Microsoft.UI.Xaml.Markup.winmd
-C:\Users\terre\Documents\Code\EduCode\InkClient\obj\x64\Debug\NoteTaker.csprojAssemblyReference.cache
 C:\Users\terre\Documents\Code\EduCode\InkClient\obj\x64\Debug\App.g.i.cs
 C:\Users\terre\Documents\Code\EduCode\InkClient\obj\x64\Debug\App.g.cs
 C:\Users\terre\Documents\Code\EduCode\InkClient\obj\x64\Debug\NoteTaker.g.i.cs
@@ -90,3 +89,4 @@ C:\Users\terre\Documents\Code\EduCode\InkClient\obj\x64\Debug\qualifiers.txt.int
 C:\Users\terre\Documents\Code\EduCode\InkClient\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\terre\Documents\Code\EduCode\InkClient\obj\x64\Debug\ProjectArchitectures.txt
 C:\Users\terre\Documents\Code\EduCode\InkClient\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885454160000000.json
+C:\Users\terre\Documents\Code\EduCode\InkClient\obj\x64\Debug\NoteTaker.csprojAssemblyReference.cache

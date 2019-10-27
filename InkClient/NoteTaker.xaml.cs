@@ -8,6 +8,9 @@ using Contoso.NoteTaker.Services.Ink;
 using Windows.Graphics.Display;
 using Windows.UI.Core;
 
+using System.Diagnostics;
+
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace NoteTaker
@@ -90,7 +93,7 @@ namespace NoteTaker
 
             //StartTimer();
         }
-
+        /*
         private async void DispatcherTimer_Tick(object sender, object e)
         {
             //StopTimer();
@@ -112,7 +115,7 @@ namespace NoteTaker
                 output.Text = OutputWriter.PrintError(ex.Message);
             }
         }
-
+        */
         private async void OnClickRecognize(object Sender, RoutedEventArgs e)
         {
             try
@@ -123,7 +126,9 @@ namespace NoteTaker
                     var root = inkRecognizer.GetRecognizerRoot();
                     if (root != null)
                     {
+                        //output.Text = OutputWriter.Print(root) + inkRecognizer.json;
                         output.Text = OutputWriter.Print(root);
+                        Debug.Write(inkRecognizer.json);
                     }
                 }
             }
@@ -131,6 +136,11 @@ namespace NoteTaker
             {
                 output.Text = OutputWriter.PrintError(ex.Message);
             }
+        }
+
+        private void Interpret()
+        {
+
         }
         //public void StartTimer() => dispatcherTimer.Start();
         //public void StopTimer() => dispatcherTimer.Stop();
