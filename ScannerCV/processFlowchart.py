@@ -43,3 +43,20 @@ if len(contours) > 0:
     contourImage = cv2.drawContours(image.copy(), [maxContour], -1, (57, 255, 20), 2)
 
 cv2.imwrite('contours.png', contourImage)
+
+approx = []
+d = 1
+approx = cv2.approxPolyDP(maxContour, d, True)
+while len(approx) > 4:
+    d = d + 1
+    approx = cv2.approxPolyDP(maxContour, d, True)
+
+cornerImage = image.copy()
+cv2.circle(cornerImage, tuple(approx[0][0]), 50, (57, 255, 20), -1)
+cv2.circle(cornerImage, tuple(approx[1][0]), 50, (57, 255, 20), -1)
+cv2.circle(cornerImage, tuple(approx[2][0]), 50, (57, 255, 20), -1)
+cv2.circle(cornerImage, tuple(approx[3][0]), 50, (57, 255, 20), -1)
+
+cv2.imwrite('corners.png', cornerImage)
+
+cv2.getPerspectiveTransform(approx, )
