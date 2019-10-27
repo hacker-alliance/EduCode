@@ -20,21 +20,19 @@ def value_to_tuple(value):
         m = re.search(r"\d", value).start()
         deb = value.find(things[var])
         if things[var] == "gt":
-            name = value[:deb]
             s = ">"
         elif things[var] == "lt":
-            name = value[:deb]
             s = "<"
         elif things[var] == "gte":
-            name = value[:deb]
             s = ">="
         elif things[var] == "lte":
-            name = value[:deb]
             s = "<="
+        elif things[var] == "dne":
+            s = "!="
         else:
-            name = value[:deb]
             s = value[deb]     
-
+        
+        name = value[:deb]
         val = value[m:]
         returnArray = [name, val, s]
     else:

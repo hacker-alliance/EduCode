@@ -5,6 +5,6 @@ if dog <= 51:
     if dog == 53:
         cat = 57
     cat = 99
-    while dog <= 57:
+    while dog != 57:
         dog = dog + 2
-        cat = 99
+    cat = 99

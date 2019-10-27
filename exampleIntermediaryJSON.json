@@ -33,11 +33,15 @@
     },
     {
         "shape": "pentagon",
-        "value": "dogLTE57"
+        "value": "dogDNE57"
     },
     {
         "shape": "rectangle",
         "value": "dog+2"
+    },
+    {
+        "shape": "pentagon",
+        "value": "end"
     },
     {
         "shape": "rectangle",
