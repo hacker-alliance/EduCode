@@ -1,0 +1,1 @@
+C:\Users\terre\Documents\Code\EduCode\InkClient\NoteTaker.csproj;x64
