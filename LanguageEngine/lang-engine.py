@@ -10,7 +10,7 @@ def value_to_tuple(value):
 
     var = 10
 
-    # for each
+    # for each token in things
     for i in range(len(things)):
         if value.find(things[i]) != -1:
             if i <= 1 and value.find(things[i+2]) != -1:
@@ -76,7 +76,6 @@ def parse_pentagon(value):
     return line
 
 # open the data file
-print(len(sys.argv))
 if len(sys.argv) > 1:
     data_file = open(sys.argv[1], "r")
 else:
@@ -102,14 +101,14 @@ for element in data:
 
     is_if = False
     shape_type = element["shape"]
-    if shape_type == "rectangle":
+    if shape_type == "rectangle" or shape_type == "square" or shape_type == "parallelogram" or shape_type == "trapezoid" or shape_type == "diamond" or shape_type == "quadrilateral":
         line = parse_rectangle(element["value"])
-    elif shape_type == "triangle":
+    elif shape_type == "triangle" or shape_type == "equilateralTriangle" or shape_type == "rightTriangle" or shape_type == "isoscelesTriangle":
         if element == data[-1]:
             is_last_if = True
         line = parse_triangle(element["value"])
         is_if = True
-    elif shape_type == "ellipse":
+    elif shape_type == "ellipse" or shape_type == "circle":
         line = parse_ellipse(element["value"])
     elif shape_type == "pentagon":
         line = parse_pentagon(element["value"])
