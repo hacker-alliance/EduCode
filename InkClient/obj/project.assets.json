@@ -8255,11 +8255,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\terre\\Documents\\Code\\cognitive-services-REST-api-samples\\dotnet\\InkRecognition\\uwp-app\\cs\\NoteTaker.csproj",
+      "projectUniqueName": "C:\\Users\\terre\\Documents\\Code\\EduCode\\InkClient\\NoteTaker.csproj",
       "projectName": "NoteTaker",
-      "projectPath": "C:\\Users\\terre\\Documents\\Code\\cognitive-services-REST-api-samples\\dotnet\\InkRecognition\\uwp-app\\cs\\NoteTaker.csproj",
+      "projectPath": "C:\\Users\\terre\\Documents\\Code\\EduCode\\InkClient\\NoteTaker.csproj",
       "packagesPath": "C:\\Users\\terre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\terre\\Documents\\Code\\cognitive-services-REST-api-samples\\dotnet\\InkRecognition\\uwp-app\\cs\\obj\\",
+      "outputPath": "C:\\Users\\terre\\Documents\\Code\\EduCode\\InkClient\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

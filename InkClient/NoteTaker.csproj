@@ -116,6 +116,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="Config.partial.cs" />
     <Compile Include="JSON\Converter\InkRecognitionResponseConverter.cs" />
     <Compile Include="JSON\Format\Alternates.cs" />
     <Compile Include="App.xaml.cs">
