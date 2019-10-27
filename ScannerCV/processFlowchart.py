@@ -25,3 +25,21 @@ dilated = cv2.dilate(thresh.copy(), kernel)
 # Obtain contours, looking for scantron outline
 contours, _ = cv2.findContours(dilated.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 cv2.imwrite('canny.png', dilated)
+
+mx = (0,0,0,0)      # biggest bounding box so far
+mx_area = 0
+maxContour = []
+for cont in contours:
+    x,y,w,h = cv2.boundingRect(cont)
+    area = w*h
+    if area > mx_area:
+        mx = x,y,w,h
+        mx_area = area
+        maxContour = cont
+x,y,w,h = mx
+
+# Draw contour only if one actually exists
+if len(contours) > 0:
+    contourImage = cv2.drawContours(image.copy(), [maxContour], -1, (57, 255, 20), 2)
+
+cv2.imwrite('contours.png', contourImage)
