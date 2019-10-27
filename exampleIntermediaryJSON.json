@@ -1,42 +1,52 @@
-[
-    {
-        "shape": "rectangle",
-        "value": "dog51"
-    },
-    {
-        "shape": "triangle",
-        "value": "dog51"
-    },
-    {
-        "shape": "rectangle",
-        "value": "dog65"
-    },
-    {
-        "shape": "ellipse",
-        "value": "dog passed"
-    },
-    {
-        "shape": "triangle",
-        "value": "dog53"
-    },
-    {
-        "shape": "rectangle",
-        "value": "cat57"
-    },
-    {
-        "shape": "triangle",
-        "value": "end"        
-    },
-    {
-        "shape": "rectangle",
-        "value": "cat99"
-    },
-    {
-        "shape": "triangle",
-        "value": "end"        
-    },
-    {
-        "shape": "rectangle",
-        "value": "cat99"
-    }
-]
+{
+    "shapes": [
+        {
+            "shape": "rectangle",
+            "value": "dog51"
+        },
+        {
+            "shape": "triangle",
+            "value": "dogLTE51"
+        },
+        {
+            "shape": "rectangle",
+            "value": "dog*6"
+        },
+        {
+            "shape": "ellipse",
+            "value": "dog passed"
+        },
+        {
+            "shape": "triangle",
+            "value": "dog53"
+        },
+        {
+            "shape": "rectangle",
+            "value": "cat57"
+        },
+        {
+            "shape": "triangle",
+            "value": "end"
+        },
+        {
+            "shape": "rectangle",
+            "value": "cat99"
+        },
+        {
+            "shape": "pentagon",
+            "value": "dogDNE57"
+        },
+        {
+            "shape": "rectangle",
+            "value": "dog+2"
+        },
+        {
+            "shape": "pentagon",
+            "value": "end"
+        },
+        {
+            "shape": "rectangle",
+            "value": "cat99"
+        }
+    ]
+}
