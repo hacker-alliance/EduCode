@@ -9,7 +9,7 @@ using Windows.Graphics.Display;
 using Windows.UI.Core;
 
 using System.Diagnostics;
-
+using Windows.Storage;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -129,6 +129,17 @@ namespace NoteTaker
                         //output.Text = OutputWriter.Print(root) + inkRecognizer.json;
                         output.Text = OutputWriter.Print(root);
                         Debug.Write(inkRecognizer.json);
+                        StorageFile outputFile = await DownloadsFolder.CreateFileAsync("intermediary.json");
+                        if (outputFile != null)
+                        {
+                            // Store file permissions for future access
+                            Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(outputFile);
+
+                            // Convert to Binary Buffer
+                            var buffer = Windows.Security.Cryptography.CryptographicBuffer.ConvertStringToBinary(inkRecognizer.json, Windows.Security.Cryptography.BinaryStringEncoding.Utf8);
+                            await Windows.Storage.FileIO.WriteBufferAsync(outputFile, buffer);
+                        }
+
                     }
                 }
             }
