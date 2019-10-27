@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+      
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*" />
@@ -18,7 +18,14 @@
         </Border>
         <Border Grid.Row ="1" BorderBrush="Black" BorderThickness="1">
             <ScrollViewer>
-                <TextBlock x:Name="output" HorizontalAlignment="Center" TextAlignment="Center" FontSize="30" TextWrapping="Wrap"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="recognize" Content="Recognize" ClickMode="Release"
+                        Click="OnClickRecognize"
+                        Margin="5, 5, 5, 5" Width="150" Height="150"
+                        HorizontalAlignment="Right"
+                    />
+                    <TextBlock x:Name="output" HorizontalAlignment="Center" TextAlignment="Center" FontSize="30" TextWrapping="Wrap"/>
+                </StackPanel>
             </ScrollViewer>
         </Border>
     </Grid>

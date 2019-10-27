@@ -50,48 +50,50 @@ namespace NoteTaker
             displayInfo = DisplayInformation.GetForCurrentView();
             inkRecognizer.SetDisplayInformation(displayInfo);
 
+            /*
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += DispatcherTimer_Tick;
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(IDLE_WAITING_TIME);
+            */
         }
 
         private void InkPresenter_StrokeInputStarted(Windows.UI.Input.Inking.InkStrokeInput sender, PointerEventArgs args)
         {
-            StopTimer();
+            //StopTimer();
         }
 
         private void InkPresenter_StrokeInputEnded(Windows.UI.Input.Inking.InkStrokeInput sender, PointerEventArgs args)
             {
-            StartTimer();
+            //StartTimer();
         }
 
         private void InkPresenter_StrokesCollected(Windows.UI.Input.Inking.InkPresenter sender, Windows.UI.Input.Inking.InkStrokesCollectedEventArgs args)
         {
-            StopTimer();
+            //StopTimer();
 
             foreach (var stroke in args.Strokes)
             {
                 inkRecognizer.AddStroke(stroke);
             }
 
-            StartTimer();
+            //StartTimer();
         }
 
         private void InkPresenter_StrokesErased(Windows.UI.Input.Inking.InkPresenter sender, Windows.UI.Input.Inking.InkStrokesErasedEventArgs args)
         {
-            StopTimer();
+            //StopTimer();
 
             foreach (var stroke in args.Strokes)
             {
                 inkRecognizer.RemoveStroke(stroke.Id);
             }
 
-            StartTimer();
+            //StartTimer();
         }
 
         private async void DispatcherTimer_Tick(object sender, object e)
         {
-            StopTimer();
+            //StopTimer();
 
             try
             {
@@ -111,7 +113,26 @@ namespace NoteTaker
             }
         }
 
-        public void StartTimer() => dispatcherTimer.Start();
-        public void StopTimer() => dispatcherTimer.Stop();
+        private async void OnClickRecognize(object Sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var status = await inkRecognizer.RecognizeAsync();
+                if (status == HttpStatusCode.OK)
+                {
+                    var root = inkRecognizer.GetRecognizerRoot();
+                    if (root != null)
+                    {
+                        output.Text = OutputWriter.Print(root);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                output.Text = OutputWriter.PrintError(ex.Message);
+            }
+        }
+        //public void StartTimer() => dispatcherTimer.Start();
+        //public void StopTimer() => dispatcherTimer.Stop();
     }
 }

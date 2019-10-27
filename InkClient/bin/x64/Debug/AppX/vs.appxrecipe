@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>9C36965733D14F263C9AF460641E9E14C2994D913E52EA046AA968E74678CC71</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>F0889633D28C7E15419AFE1F608D64CFA33EEB7464B5EF8AC79004590F4BAD60</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>09179ac1-9426-40e0-8880-6b50d59be47c_1.0.0.0_x64__h91ms92gdsmmt</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>09179ac1-9426-40e0-8880-6b50d59be47c_h91ms92gdsmmt!App</RegisteredUserModeAppID>
     <RegisteredPackageID>09179ac1-9426-40e0-8880-6b50d59be47c</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-10-27T02:15:08.285</Modified>
+      <Modified>2019-10-27T02:40:56.934</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\NoteTaker.exe">
       <PackagePath>entrypoint\NoteTaker.exe</PackagePath>
-      <Modified>2019-10-27T02:15:07.753</Modified>
+      <Modified>2019-10-27T02:40:56.447</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\terre\.nuget\packages\newtonsoft.json\12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -81,15 +81,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\NoteTaker.xr.xml">
       <PackagePath>NoteTaker.xr.xml</PackagePath>
-      <Modified>2019-10-26T05:31:26.824</Modified>
+      <Modified>2019-10-27T02:33:20.100</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-10-27T02:15:07.522</Modified>
+      <Modified>2019-10-27T02:40:56.307</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\NoteTaker.xbf">
       <PackagePath>NoteTaker.xbf</PackagePath>
-      <Modified>2019-10-27T02:15:07.523</Modified>
+      <Modified>2019-10-27T02:40:56.308</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -97,11 +97,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-10-27T02:15:07.865</Modified>
+      <Modified>2019-10-27T02:40:56.552</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\terre\Documents\Code\EduCode\InkClient\bin\x64\Debug\Core\NoteTaker.exe">
       <PackagePath>NoteTaker.exe</PackagePath>
-      <Modified>2019-10-27T02:15:08.281</Modified>
+      <Modified>2019-10-27T02:40:56.929</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
