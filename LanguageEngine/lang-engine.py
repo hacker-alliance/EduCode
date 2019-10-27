@@ -13,6 +13,8 @@ def parse_rectangle(value):
     return line
 
 def parse_triangle(value):
+    if value == "end":
+        return value
     components = value_to_tuple(value)
     line = "if " + components[0] + " == " + components[1] + ":"
     return line
@@ -21,40 +23,58 @@ def parse_ellipse(value):
     line = "print(\"" + value + "\")"
     return line
 
-# Open the data file
+def parse_hexagon(value):
+    line = "while " + value + ":"
+    return line
+
+# open the data file
 data_file = open("../exampleIntermediaryJSON.json", "r")
 
-# Convert file data into python list
+# convert file data into python list
 data = json.load(data_file)
 
-# Open the new python file to be created
+# open the new python file to be created
 script_file = open("./script.py", "w")
 
-
 indentations = 0
+is_last_if = False
 
-# Do something for each element in the array
+# do something for each element in the array
 for element in data:
     is_if = False
     shape_type = element["shape"]
     if shape_type == "rectangle":
         line = parse_rectangle(element["value"])
     elif shape_type == "triangle":
+        if element == data[-1]:
+            is_last_if = True
         line = parse_triangle(element["value"])
         is_if = True
     elif shape_type == "ellipse":
         line = parse_ellipse(element["value"])
+    elif shape_type == "hexagon":
+        line = parse_hexagon(element["value"])
+        is_if = True
+
+    if line == "end":
+        indentations -= 1
+        continue
 
     # prepend indentations
     for i in range(indentations):
         line = "    " + line
 
     script_file.write(line + "\n")
+
     if is_if:
         indentations += 1
 
+    line = ""
 
-print(data)
+    if is_last_if:
+        for i in range(indentations):
+            line = "    " + line
+        script_file.write(line + "pass")
 
 # close the files
 data_file.close()
