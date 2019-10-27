@@ -1,4 +1,4 @@
-dog = 51
+dog = 599
 if dog <= 51:
     dog = dog * 6
     print("dog passed")

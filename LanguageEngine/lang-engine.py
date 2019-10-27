@@ -1,12 +1,16 @@
 import json
 import re
+import sys
 
 def value_to_tuple(value):
-    things = ["gt", "lt", "gte", "lte", "dne", 
+    operators = { ">": ["gt"], ">=": ["gte"], "<": ["lt"], "<=": ["lte"], "!=": ["dne"],
+        "-": ["-"], "+": ["+"], "/": ["/"], "*": ["*", "."]}
+    things = ["gt", "lt", "gte", "lte", "dne",
               "-", "+", "/", "*"]
 
     var = 10
 
+    # for each
     for i in range(len(things)):
         if value.find(things[i]) != -1:
             if i <= 1 and value.find(things[i+2]) != -1:
@@ -30,8 +34,8 @@ def value_to_tuple(value):
         elif things[var] == "dne":
             s = "!="
         else:
-            s = value[deb]     
-        
+            s = value[deb]
+
         name = value[:deb]
         val = value[m:]
         returnArray = [name, val, s]
@@ -72,10 +76,14 @@ def parse_pentagon(value):
     return line
 
 # open the data file
-data_file = open("../exampleIntermediaryJSON.json", "r")
+print(len(sys.argv))
+if len(sys.argv) > 1:
+    data_file = open(sys.argv[1], "r")
+else:
+    data_file = open("../exampleIntermediaryJSON.json", "r")
 
 # convert file data into python list
-data = json.load(data_file)
+data = json.load(data_file)["shapes"]
 
 # open the new python file to be created
 script_file = open("./script.py", "w")
@@ -87,7 +95,7 @@ is_last_if = False
 for element in data:
     element["value"] = element["value"].lower()
 
-    # If the value is end, we should 
+    # If the value is end, we should
     if element["value"] == "end":
         indentations -= 1
         continue
